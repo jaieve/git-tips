@@ -92,6 +92,7 @@
 * [트래킹된 파일의 변경사항 무시하기](#트래킹된-파일의-변경사항-무시하기)
 * [assume-unchanged 되돌리기](#assume-unchanged-되돌리기)
 * [`.gitignore`에 명시된 파일들 삭제하기](#gitignore에-명시된-파일들-삭제하기)
+* [이미 remote에 올라간 gitignore 파일 remote에서 삭제하기](#이미-remote에-올라간-gitignore-파일-remote에서-삭제하기)
 * [삭제된 파일 복구하기](#삭제된-파일-복구하기)
 * [특정 커밋으로의 파일로 복구하기](#특정-커밋으로의-파일로-복구하기)
 * [pull시 머지하는 대신 항상 리베이스 하기](#pull시-머지하는-대신-항상-리베이스-하기)
@@ -737,6 +738,14 @@ git update-index --no-assume-unchanged <file_name>
 ## `.gitignore`에 명시된 파일들 삭제하기
 ```sh
 git clean -X -f
+```
+
+## 이미-remote에-올라간-gitignore-파일-remote에서-삭제하기
+```sh
+git rm -r --cached .
+git add .
+git commit -m "Apply .gitignore"
+git push
 ```
 
 ## 삭제된 파일 복구하기
